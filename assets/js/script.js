@@ -3,6 +3,10 @@ var startButton = document.querySelector("#startButton");
 var questionSection = document.querySelector("#questionsBox");
 var questionArticle = document.querySelector("#questions-article");
 var quizResults = document.querySelector("#quizResults");
+var timer = document.querySelector("#timer");
+// JS Variables
+
+
 
 // An array for my questions
 var questions = [
@@ -33,6 +37,33 @@ var questions = [
 ];
 
 // TODO - Make a Timer that starts counting down once the start button is clicked
+function startTimer() {
+    // Sets the number of seconds for my timer
+    var timeRemaining = 10;
+     setInterval(function(){
+        timeRemaining--;
+        // If time remaining is equal to or greater than 0, the remaining time will be displayed
+        if (timeRemaining >= 0){
+        timer.textContent = timeRemaining + " seconds remaining.";
+        }
+        // If the time remaining is equal to 0, then it displays a game over notice and clears the time remaining interval
+        if(timeRemaining === 0) {
+            timer.textContent = "Game Over";
+            clearInterval(timeRemaining);
+        }
+    }, 1000);
+}
+
+
+
+
 // TODO - Make a function that grabs one question from the array to display at a time
-// TODO - use localStorage to store/get wins/loses
+// TODO - Need a function to subtract time from timeRemaining for incorrect answers
+// TODO - Need a GameOver display when total time runs out
+// TODO - Need a Congrats display for when all questions have been answered correctly
+// TODO - use localStorage to store/get wins/loses and track right questions "3/5 correct"
 // TODO - Make a reset button for game stats
+// TODO - Allow users to input their intials for a high score chart
+
+// Event listener for my start button which initiates my timer
+startButton.addEventListener("click", startTimer);
