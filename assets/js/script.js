@@ -1,8 +1,10 @@
+// Html Hooks
 var startButton = document.querySelector("#startButton");
 var questionSection = document.querySelector("#questionsBox");
 var questionArticle = document.querySelector("#questions-article");
 var quizResults = document.querySelector("#quizResults");
 
+// An array for my questions
 var questions = [
     {   question: "What does 'www' stand for in a website browser?",
         choices: ["World Wide Web", "Western World Websites", "Where Websites Wumbo", "What was what"],
@@ -29,3 +31,8 @@ var questions = [
         answer: "Tea"
     }
 ];
+
+// TODO - Make a Timer that starts counting down once the start button is clicked
+// TODO - Make a function that grabs one question from the array to display at a time
+// TODO - use localStorage to store/get wins/loses
+// TODO - Make a reset button for game stats
