@@ -6,6 +6,7 @@ var quizResults = document.querySelector("#quizResults");
 var timer = document.querySelector("#timer");
 // JS Variables
 
+// timeRemaining is the variable used in my timer (line 40 as of 4/2) to identify the nunmber of seconds remaining
 
 
 // An array for my questions
@@ -37,7 +38,7 @@ var questions = [
 ];
 
 // TODO - Make a Timer that starts counting down once the start button is clicked
-function startTimer() {
+function startQuiz() {
     // Sets the number of seconds for my timer
     var timeRemaining = 10;
      setInterval(function(){
@@ -58,6 +59,19 @@ function startTimer() {
 
 
 // TODO - Make a function that grabs one question from the array to display at a time
+// I need this function to display a question and it's potential answers when the start button is clicked
+// This function should also accept input such as clicking on an answer or entering a choice number
+
+// function startQuiz() {
+//     questionSection = function(){ 
+//         for (let i = 0; i < questions.length; i++) {
+//         var questions = questions[i];
+//         }
+//         questionArticle.innerHTML = questions;
+//     }
+
+// }
+
 // TODO - Need a function to subtract time from timeRemaining for incorrect answers
 // TODO - Need a GameOver display when total time runs out
 // TODO - Need a Congrats display for when all questions have been answered correctly
@@ -66,4 +80,4 @@ function startTimer() {
 // TODO - Allow users to input their intials for a high score chart
 
 // Event listener for my start button which initiates my timer
-startButton.addEventListener("click", startTimer);
+startButton.addEventListener("click", startQuiz);
