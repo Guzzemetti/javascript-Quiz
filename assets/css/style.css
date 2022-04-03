@@ -51,13 +51,13 @@ div {
     background-color: pink;
 }
 
-/* Targets the right-side section to give space between the divs within */
-#quizResults {
-    display: flex;
-    justify-content: space-around;
+/* Left-stide section that contains the questions article */
+#questionsBox{
+    color: white;
 }
 
 /* Left Article that contains the start button */
+/* This is where the questions and answers should appear */
 #questions-article {
     display: flex;
     justify-content: center;
@@ -67,6 +67,13 @@ div {
     /* margin: 2px; */
     border: .5rem solid black;
     background-color: rgb(57, 87, 221);
+}
+
+
+/* Targets the right-side section to give space between the divs within */
+#quizResults {
+    display: flex;
+    justify-content: space-around;
 }
 
 #high-score {

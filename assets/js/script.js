@@ -40,7 +40,7 @@ var questions = [
 // TODO - Make a Timer that starts counting down once the start button is clicked
 function startQuiz() {
     // Sets the number of seconds for my timer
-    var timeRemaining = 10;
+    var timeRemaining = 3;
      setInterval(function(){
         timeRemaining--;
         // If time remaining is equal to or greater than 0, the remaining time will be displayed
@@ -62,22 +62,23 @@ function startQuiz() {
 // I need this function to display a question and it's potential answers when the start button is clicked
 // This function should also accept input such as clicking on an answer or entering a choice number
 
-// function startQuiz() {
-//     questionSection = function(){ 
-//         for (let i = 0; i < questions.length; i++) {
-//         var questions = questions[i];
-//         }
-//         questionArticle.innerHTML = questions;
-//     }
+function displayQuestions() {
+    questionArticle = function(){ 
+        for (let i = 0; i < questions.length; i++) {
+        var questions = questions[i];
+        }
+        questionArticle.innerHTML = questions;
+    }
 
-// }
+}
 
 // TODO - Need a function to subtract time from timeRemaining for incorrect answers
 // TODO - Need a GameOver display when total time runs out
+    // As of now, I have a Game-Over message that displays in the Timer Box once it reaches 0
 // TODO - Need a Congrats display for when all questions have been answered correctly
 // TODO - use localStorage to store/get wins/loses and track right questions "3/5 correct"
 // TODO - Make a reset button for game stats
 // TODO - Allow users to input their intials for a high score chart
 
 // Event listener for my start button which initiates my timer
-startButton.addEventListener("click", startQuiz);
+startButton.addEventListener("click", startQuiz, displayQuestions);
