@@ -24,7 +24,7 @@ var questions = [
         answer: "Octagon"
     },
     {   question: "What is the name of the biggest technology company in South Korea?",
-        choices: ["Honda", "Samsung", "Kia", "Hyundai"],
+        choices: ["Verizon", "Samsung", "Kia", "Hyundai"],
         answer: "Samsung"
     },
     {   question: "Demolition of the Berlin wall separating East and West Germany began in what year?",
@@ -51,6 +51,9 @@ function startQuiz() {
         if(timeRemaining === 0) {
             timer.textContent = "Game Over";
             clearInterval(timeRemaining);
+            // Selects the Start Button from the HTML and then changes text when timer hits 0
+            let startButton = document.querySelector("#startButton");
+                startButton.textContent = "Retry?"
         }
     }, 1000);
 }
@@ -63,14 +66,12 @@ function startQuiz() {
 // This function should also accept input such as clicking on an answer or entering a choice number
 
 function displayQuestions() {
-    questionArticle = function(){ 
         for (let i = 0; i < questions.length; i++) {
         var questions = questions[i];
         }
         questionArticle.innerHTML = questions;
-    }
 
-}
+};
 
 // TODO - Need a function to subtract time from timeRemaining for incorrect answers
 // TODO - Need a GameOver display when total time runs out
