@@ -1,7 +1,7 @@
 // Html Hooks
 var startButton = document.querySelector("#startButton");
 var questionSection = document.querySelector("#questionsBox");
-var questionArticle = document.querySelector("#questions-article");
+var questionsDiv = document.querySelector("#questionsDiv");
 var quizResults = document.querySelector("#quizResults");
 var timer = document.querySelector("#timer");
 // JS Variables
@@ -65,31 +65,30 @@ function startQuiz() {
 }
 
 
-localStorage.setItem("questions", JSON.stringify(questionsArr));
+
+// localStorage.setItem("storedQuestions", JSON.stringify(questionsArr[0]));
+// questionsDiv.textContent = localStorage.getItem("storedQuestions");
 
 // TODO - Make a function that grabs one question from the array to display at a time
 // I need this function to display a question and it's potential answers when the start button is clicked
 // This function should also accept input such as clicking on an answer or entering a choice number
 
-function displayQuestions() { 
-    for (let index = 0; index < questionsArr.length; index++) {
-        let currentQuestionIndex = questionsArr[index];
-        document.querySelector("#questionsArticle").textContent = currentQuestionIndex;
-        currentQuestionIndex = JSON.parse(localStorage.getItem("questionsArr.question"))
-    }
-};
-localStorage.getItem("questionsArr");
-currentQuestionIndex = JSON.parse(localStorage.getItem("questionsArr"));
+// function displayQuestions() { 
+//     for (let index = 0; index < questionsArr.length; index++) {
+//         localStorage.setItem("storedQuestion", JSON.stringify(questionsArr[index]));
+//         questionsDiv.textContent = localStorage.getItem("storedQuestion");
+//         localStorage.removeItem("storedQuestion");
+//         console.log(questionsArr[index]);
+//     }
+// };
 
-
-
-
+// localStorage.getItem("questionsArr");
+// currentQuestionIndex = JSON.parse(localStorage.getItem(questionsArr));
 
 console.log(questionsArr.question);
 console.log(questionsArr.choices);
 console.log(questionsArr.answer);
-console.log(currentQuestionIndex);
-console.log(questionsArr);
+// console.log(questionsArr);
 
 // TODO - Need a function to subtract time from timeRemaining for incorrect answers
 // TODO - Need a GameOver display when total time runs out
@@ -100,5 +99,12 @@ console.log(questionsArr);
 // TODO - Allow users to input their intials for a high score chart
 
 // Event listener for my start button which initiates my timer
-startButton.addEventListener("click", startQuiz);
-startButton.addEventListener("click", displayQuestions);
+// startButton.addEventListener("click", startQuiz);
+startButton.addEventListener("click", function displayQuestions() { 
+    for (let index = 0; index < questionsArr.length; index++) {
+        localStorage.setItem("storedQuestion", JSON.stringify(questionsArr[index]));
+        questionsDiv.textContent = localStorage.getItem("storedQuestion");
+        localStorage.removeItem("storedQuestion");
+        console.log(questionsArr[index]);
+    }
+});
