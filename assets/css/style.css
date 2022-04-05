@@ -58,7 +58,7 @@ div {
 
 /* Left Article that contains the start button */
 /* This is where the questions and answers should appear */
-#questions-article {
+#questionsArticle {
     display: flex;
     justify-content: center;
     align-items: center;
