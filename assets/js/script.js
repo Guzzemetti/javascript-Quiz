@@ -75,18 +75,21 @@ function displayQuestions() {
     for (let index = 0; index < questionsArr.length; index++) {
         let currentQuestionIndex = questionsArr[index];
         document.querySelector("#questionsArticle").textContent = currentQuestionIndex;
-        currentQuestionIndex = JSON.parse(localStorage.getItem("questionsArr"));
-
-
-        
+        currentQuestionIndex = JSON.parse(localStorage.getItem("questionsArr.question"))
     }
 };
+localStorage.getItem("questionsArr");
 currentQuestionIndex = JSON.parse(localStorage.getItem("questionsArr"));
+
+
+
+
+
 console.log(questionsArr.question);
 console.log(questionsArr.choices);
 console.log(questionsArr.answer);
-// console.log(questionsArr);
-// console.log(questionsArr);
+console.log(currentQuestionIndex);
+console.log(questionsArr);
 
 // TODO - Need a function to subtract time from timeRemaining for incorrect answers
 // TODO - Need a GameOver display when total time runs out
