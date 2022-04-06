@@ -51,6 +51,11 @@ div {
     background-color: pink;
 }
 
+.hide {
+    display: none;
+}
+
+
 /* Left-stide section that contains the questions article */
 #questionsBox{
     color: white;

@@ -21,42 +21,53 @@ var questionsArr = [
     {
         question: "What does 'www' stand for in a website browser?",
         choices: ["World Wide Web", "Western World Websites", "Where Websites Wumbo", "What was what"],
-        answer: 1
+        answer: "World Wide Web"
     },
     {
         question: "How long is an Olympic swimming pool (in meters)?",
         choices: ["30", "50", "60", "75"],
-        answer: 2
+        answer: "50"
     },
     {
         question: "What geometric shape is generally used for stop signs?",
         choices: ["Hexagon", "Dodecahedron", "Octagon", "Trapezoid"],
-        answer: 3
+        answer: "Octagon"
     },
     {
         question: "What is the name of the biggest technology company in South Korea?",
         choices: ["Verizon", "Samsung", "Kia", "Hyundai"],
-        answer: 2
+        answer: "Samsung"
     },
     {
         question: "Demolition of the Berlin wall separating East and West Germany began in what year?",
         choices: ["1988", "1987", "1986", "1989"],
-        answer: 4
+        answer: "1989"
     },
     {
         question: "What is the most consumed manufactured drink in the world?",
         choices: ["Tea", "Coca-Cola", "Mike's Hard Lemonade", "Wine"],
-        answer: 1
+        answer: "Tea"
     }
 ];
+
+var timeRemaining = 60;
 
 // TODO - Make a Timer that starts counting down once the start button is clicked
 function startQuiz() {
     displayQuestions();
     timerStart();
-    
+    showButtons();
 }
 
+// Unhides my buttons
+function showButtons(){
+    choiceOne.removeAttribute("class");
+    choiceTwo.removeAttribute("class"); 
+    choiceThree.removeAttribute("class");
+    choiceFour.removeAttribute("class");
+}
+
+// Assigns buttons a choice option from my overall questions array
 function displayQuestions() { 
     var currentQuestion = questionsArr[currentQuestionIndex]
         questionHere.textContent = currentQuestion.question;
@@ -64,12 +75,15 @@ function displayQuestions() {
         choiceTwo.textContent = currentQuestion.choices[1];
         choiceThree.textContent = currentQuestion.choices[2];
         choiceFour.textContent = currentQuestion.choices[3];
+        choiceOne.onclick = verifyAnswer;
+        choiceTwo.onclick = verifyAnswer;
+        choiceThree.onclick = verifyAnswer;
+        choiceFour.onclick = verifyAnswer;     
 }
 
-
+// Starts my timer from X seconds and has Game Over event if time runs out
 function timerStart(){
     // Sets the number of seconds for my timer
-    var timeRemaining = 3;
     timer.textContent = timeRemaining + " seconds remaining.";
     setInterval(function () {
         timeRemaining--;
@@ -88,6 +102,19 @@ function timerStart(){
     }, 1000);
 }
 
+// Verifies if the answer is correct for the displayed question
+function verifyAnswer() {
+    if (this.textContent !== questionsArr[currentQuestionIndex].answer) {
+        console.log("incorrect");
+        timeRemaining -=15;
+    }
+    if (this.textContent === questionsArr[currentQuestionIndex].answer) {
+        console.log("Correct");
+    };
+    currentQuestionIndex++;
+    displayQuestions(questionsArr[currentQuestionIndex]);
+};
+
 
 // TODO - Make a function that grabs one question from the array to display at a time
 // I need this function to display a question and it's potential answers when the start button is clicked
@@ -105,8 +132,10 @@ function timerStart(){
 
 // Event listener for my start button which initiates my timer
 startButton.addEventListener("click", startQuiz);
-// startButton.addEventListener("click", displayQuestions);
 
+
+
+// This is to test functions
 // startButton.addEventListener("click", test);
 // function test(){
 //     
