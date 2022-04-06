@@ -10,13 +10,10 @@ var choiceTwo = document.querySelector(".choiceTwo");
 var choiceThree = document.querySelector(".choiceThree");
 var choiceFour = document.querySelector(".choiceFour");
 
-
-// JS Variables
 var currentQuestionIndex = 0
-// timeRemaining is the variable used in my timer (line 40 as of 4/2) to identify the nunmber of seconds remaining
 
 
-// An array for my questions
+// An array for my questions, their choices and the answers
 var questionsArr = [
     {
         question: "What does 'www' stand for in a website browser?",
@@ -50,6 +47,7 @@ var questionsArr = [
     }
 ];
 
+// Sets the starting point for my timer by number of seconds
 var timeRemaining = 60;
 
 // TODO - Make a Timer that starts counting down once the start button is clicked
@@ -67,14 +65,18 @@ function showButtons(){
     choiceFour.removeAttribute("class");
 }
 
+// TODO - Make a function that grabs one question from the array to display at a time
 // Assigns buttons a choice option from my overall questions array
 function displayQuestions() { 
     var currentQuestion = questionsArr[currentQuestionIndex]
+        // displays the current question
         questionHere.textContent = currentQuestion.question;
+        // Assigns a choice to a button based on it's location in the array
         choiceOne.textContent = currentQuestion.choices[0];
         choiceTwo.textContent = currentQuestion.choices[1];
         choiceThree.textContent = currentQuestion.choices[2];
         choiceFour.textContent = currentQuestion.choices[3];
+        // When one of these buttons are clicked, they initiate the verifyAnswer function below 
         choiceOne.onclick = verifyAnswer;
         choiceTwo.onclick = verifyAnswer;
         choiceThree.onclick = verifyAnswer;
@@ -104,28 +106,22 @@ function timerStart(){
 
 // Verifies if the answer is correct for the displayed question
 function verifyAnswer() {
+    // TODO - Need a function to subtract time from timeRemaining for incorrect answers
     if (this.textContent !== questionsArr[currentQuestionIndex].answer) {
         console.log("incorrect");
-        timeRemaining -=15;
+        timeRemaining -=10;
     }
     if (this.textContent === questionsArr[currentQuestionIndex].answer) {
         console.log("Correct");
     };
+    // Updates the question index to move to the next question, then initiates the display function to show the next question and choices
     currentQuestionIndex++;
     displayQuestions(questionsArr[currentQuestionIndex]);
 };
 
-
-// TODO - Make a function that grabs one question from the array to display at a time
-// I need this function to display a question and it's potential answers when the start button is clicked
-// This function should also accept input such as clicking on an answer or entering a choice number
-
-
-
-// TODO - Need a function to subtract time from timeRemaining for incorrect answers
 // TODO - Need a GameOver display when total time runs out
 // As of now, I have a Game-Over message that displays in the Timer Box once it reaches 0
-// TODO - Need a Congrats display for when all questions have been answered correctly
+
 // TODO - use localStorage to store/get wins/loses and track right questions "3/5 correct"
 // TODO - Make a reset button for game stats
 // TODO - Allow users to input their intials for a high score chart
@@ -141,22 +137,3 @@ startButton.addEventListener("click", startQuiz);
 //     
     
 // }
-
-
-
-
-
-// localStorage.setItem("storedQuestions", JSON.stringify(questionsArr[0]));
-// questionsDiv.textContent = localStorage.getItem("storedQuestions");
-
-// function displayQuestions() { 
-//     for (let index = 0; index < questionsArr.length; index++) {
-//         localStorage.setItem("storedQuestion", JSON.stringify(questionsArr[index]));
-//         questionsDiv.textContent = localStorage.getItem("storedQuestion");
-//         localStorage.removeItem("storedQuestion");
-//         console.log(questionsArr[index]);
-//     }
-// };
-
-// localStorage.getItem("questionsArr");
-// currentQuestionIndex = JSON.parse(localStorage.getItem(questionsArr));
