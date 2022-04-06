@@ -9,6 +9,7 @@ var choiceOne = document.querySelector(".choiceOne");
 var choiceTwo = document.querySelector(".choiceTwo");
 var choiceThree = document.querySelector(".choiceThree");
 var choiceFour = document.querySelector(".choiceFour");
+var highScore = document.querySelector(".high-score");
 
 var currentQuestionIndex = 0
 
@@ -133,10 +134,13 @@ function verifyAnswer() {
 function gameOver(){
     // Changes the text of my timer section to read Game Over
     timer.textContent = "Game Over";
-    clearInterval(timeRemaining);
-    // Selects the Start Button from the HTML and then changes text when timer hits 0
-    let startButton = document.querySelector("#startButton");
-    startButton.textContent = "Retry?"
+    questionHere.textContent = "Your score: " + timeRemaining;
+     clearInterval(timeRemaining);
+        // stops my timer
+        timeRemaining = 0
+            // Selects the Start Button from the HTML and then changes text when timer hits 0
+            let startButton = document.querySelector("#startButton");
+                startButton.textContent = "Retry?"
 
 }
 

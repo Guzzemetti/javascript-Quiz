@@ -4,8 +4,8 @@ header {
     align-items: center;
     width: 100%;
     height: 8rem;
-    background-color: black;
-    border: .5rem solid black;
+    background-color: #14213d;
+    border-bottom: .2rem solid black;
 }
 
 h1 {
@@ -16,7 +16,7 @@ h1 {
 }
 
 body {
-    background-color: rgb(65, 65, 65);
+    background-color: #E5E5E5;
 }
 
 main {
@@ -32,7 +32,7 @@ section {
     height: 30rem;
     margin-top: 4rem;
     border: .5rem solid black;
-    background-color: rgb(58, 12, 88);
+    background-color: #14213D;
 }
 
 div {
@@ -40,12 +40,10 @@ div {
     height: 10rem;
     margin: 2px;
     border: .5rem solid black;
-    background-color: pink;
+    background-color: #E5E5E5;
 }
 
-.hide {
-    display: none;
-}
+
 
 
 /* Left-stide section that contains the questions article */
@@ -65,7 +63,8 @@ div {
     height: 70%;
     border-radius: 50px 50px;
     border: .5rem solid black;
-    background-color: rgb(57, 87, 221);
+    background-color: #E5E5E5;
+    color: black;
 }
 /* Targets the buttons Ul */
 #buttons {
@@ -88,7 +87,7 @@ div {
     height: 20rem;
     /* margin: 2px; */
     border: .5rem solid black;
-    background-color: red;
+    background-color: #E5E5E5;
 }
 
 
@@ -122,5 +121,10 @@ div {
     font-family: monospace;
     font-size: x-large;
     margin: 1rem;
+    background-color: black;
+    color: white;
+}
 
+.hide {
+    display: none;
 }
