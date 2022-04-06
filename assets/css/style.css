@@ -3,7 +3,7 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 10rem;
+    height: 8rem;
     background-color: black;
     border: .5rem solid black;
 }
@@ -35,14 +35,6 @@ section {
     background-color: rgb(58, 12, 88);
 }
 
-/* article {
-    width: 10rem;
-    height: 10rem;
-    margin: 2px;
-    border: .5rem solid black;
-    background-color: purple;
-} */
-
 div {
     width: 10rem;
     height: 10rem;
@@ -59,29 +51,36 @@ div {
 /* Left-stide section that contains the questions article */
 #questionsBox{
     color: white;
+    border-radius: 50px 50px;
 }
 
 /* Left Article that contains the start button */
 /* This is where the questions and answers should appear */
 #questionsDiv {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40rem;
-    height: 20rem;
-    /* margin: 2px; */
+    width: 80%;
+    height: 70%;
+    border-radius: 50px 50px;
     border: .5rem solid black;
     background-color: rgb(57, 87, 221);
 }
-
+/* Targets the buttons Ul */
+#buttons {
+    margin: 1rem;
+}
 
 /* Targets the right-side section to give space between the divs within */
 #quizResults {
     display: flex;
+    border-radius: 50px 50px;
     justify-content: space-around;
 }
 
 #high-score {
+    border-radius: 50px 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,6 +104,7 @@ div {
 
 
 #timer-box {
+    border-radius: 50px 50px;
     width: 15rem;
     height: 10rem;
     display: flex;
@@ -115,10 +115,12 @@ div {
 
 
 #timer {
+    border-radius: 50px 50px;
     width: 10rem;
     text-align: center;
     border: 2px solid black;
     font-family: monospace;
     font-size: x-large;
+    margin: 1rem;
 
 }
