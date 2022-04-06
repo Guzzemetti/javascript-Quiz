@@ -78,19 +78,6 @@ div {
     justify-content: space-around;
 }
 
-#high-score {
-    border-radius: 50px 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20em;
-    height: 20rem;
-    /* margin: 2px; */
-    border: .5rem solid black;
-    background-color: #E5E5E5;
-}
-
-
 #startButton {
     padding: 15px 32px;
     text-align: center;
