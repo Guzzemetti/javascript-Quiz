@@ -95,17 +95,23 @@ function timerStart(){
         }
         // If the time remaining is equal to 0, then it displays a game over notice and clears the time remaining interval
         if (timeRemaining === 0) {
-            timer.textContent = "Game Over";
-            clearInterval(timeRemaining);
-            // Selects the Start Button from the HTML and then changes text when timer hits 0
-            let startButton = document.querySelector("#startButton");
-            startButton.textContent = "Retry?"
+            gameOver();
         }
     }, 1000);
 }
 
 // Verifies if the answer is correct for the displayed question
 function verifyAnswer() {
+    // If the question index reaches "6", then it hides the elements within the questions box and runs the gameOver function
+    if (currentQuestionIndex >= 5){
+        questionHere.innerHTML = "";
+        choiceOne.setAttribute("class", "hide");
+        choiceTwo.setAttribute("class", "hide");
+        choiceThree.setAttribute("class", "hide");
+        choiceFour.setAttribute("class", "hide");
+        gameOver();
+    }; 
+
     // TODO - Need a function to subtract time from timeRemaining for incorrect answers
     if (this.textContent !== questionsArr[currentQuestionIndex].answer) {
         console.log("incorrect");
@@ -117,10 +123,25 @@ function verifyAnswer() {
     // Updates the question index to move to the next question, then initiates the display function to show the next question and choices
     currentQuestionIndex++;
     displayQuestions(questionsArr[currentQuestionIndex]);
+
+  
 };
 
 // TODO - Need a GameOver display when total time runs out
 // As of now, I have a Game-Over message that displays in the Timer Box once it reaches 0
+
+function gameOver(){
+    // Changes the text of my timer section to read Game Over
+    timer.textContent = "Game Over";
+    clearInterval(timeRemaining);
+    // Selects the Start Button from the HTML and then changes text when timer hits 0
+    let startButton = document.querySelector("#startButton");
+    startButton.textContent = "Retry?"
+
+}
+
+
+
 
 // TODO - use localStorage to store/get wins/loses and track right questions "3/5 correct"
 // TODO - Make a reset button for game stats
