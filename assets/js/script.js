@@ -52,8 +52,25 @@ var questionsArr = [
 
 // TODO - Make a Timer that starts counting down once the start button is clicked
 function startQuiz() {
+    displayQuestions();
+    timerStart();
+    
+}
+
+function displayQuestions() { 
+    var currentQuestion = questionsArr[currentQuestionIndex]
+        questionHere.textContent = currentQuestion.question;
+        choiceOne.textContent = currentQuestion.choices[0];
+        choiceTwo.textContent = currentQuestion.choices[1];
+        choiceThree.textContent = currentQuestion.choices[2];
+        choiceFour.textContent = currentQuestion.choices[3];
+}
+
+
+function timerStart(){
     // Sets the number of seconds for my timer
     var timeRemaining = 3;
+    timer.textContent = timeRemaining + " seconds remaining.";
     setInterval(function () {
         timeRemaining--;
         // If time remaining is equal to or greater than 0, the remaining time will be displayed
@@ -70,18 +87,6 @@ function startQuiz() {
         }
     }, 1000);
 }
-
-function displayQuestions() { 
-    var currentQuestion = questionsArr[currentQuestionIndex]
-        questionHere.textContent = currentQuestion.question;
-        choiceOne.textContent = currentQuestion.choices[0];
-        choiceTwo.textContent = currentQuestion.choices[1];
-        choiceThree.textContent = currentQuestion.choices[2];
-        choiceFour.textContent = currentQuestion.choices[3];
-}
-
-
-
 
 
 // TODO - Make a function that grabs one question from the array to display at a time
@@ -100,7 +105,7 @@ function displayQuestions() {
 
 // Event listener for my start button which initiates my timer
 startButton.addEventListener("click", startQuiz);
-startButton.addEventListener("click", displayQuestions);
+// startButton.addEventListener("click", displayQuestions);
 
 // startButton.addEventListener("click", test);
 // function test(){
