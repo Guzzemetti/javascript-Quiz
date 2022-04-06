@@ -17,3 +17,6 @@ From there, there are several functions in place to activate the choice buttons 
 
 ### Maintained by: John Guzzetta
 
+# Example Image
+
+![Example Image of the quiz](./assets/images/example.jpg)
